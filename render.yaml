@@ -1,0 +1,25 @@
+services:
+  # Backend API Service
+  - type: web
+    name: job-trend-analyzer-api
+    env: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm run server
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+    healthCheckPath: /api/health
+
+  # Frontend Web Service
+  - type: web
+    name: job-trend-analyzer-web
+    env: static
+    plan: starter
+    buildCommand: cd client && npm install && npm run build
+    staticPublishPath: ./client/build
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://job-trend-analyzer-api.onrender.com

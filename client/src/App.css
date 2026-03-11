@@ -1,0 +1,17 @@
+.App {
+  min-height: 100vh;
+  /* Use Tailwind utilities via className instead of fixed color */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
